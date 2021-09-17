@@ -1,0 +1,63 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+<h1> welcome {{user.username}}  below are your details</h1>
+<h2>bank details</h2>
+{%for user in detailbank%}
+   account name:{{user.account_name}}<br>
+  account number: {{user.acount_no}}<br>
+   bank: {{user.Bank}}<br>
+   branch: {{user.branch}}<br>
+   bank: {{user.bio}}<br>
+{%endfor%}
+<h2>personal info</h2>
+{%for user in detailbio%}
+    Membership No: {{user.membership_no}}<br>
+    first name: {{user.first_name}}<br>
+    Middle name: {{user.middle_name}}<br>
+    last name: {{user.last_name}}<br>
+    date of birth: {{user.DateOfBirth}}<br>
+    home address: {{user.Homeaddress}}<br>
+    office No:{{user.OffieNumber}}<br>
+    Mobile no:{{user.mobile_no}}<br>
+    Pin No: {{user.Pin_no}}<br>
+    Email: {{user.Email}}<br>
+    pysical add: {{user.physical_add}}<br>
+    town: {{user.town}}<br>
+    estate: {{user.estate}}<br>
+    House No: {{user.house_no}}<br>
+    live there : {{user.livethrere}}<br>
+    house owned: {{user.Houseowned}}<br>
+    martial status: {{user.martial_status}}<br>
+    dependents:  {{user.No_dependents}}<br>
+{%endfor%}
+<h2>loan details</h2>
+{%for user in detailloan%}
+  type of loan: {{user.loan}}<br>
+  purpose of loan:{{user.Purposeofloan}}<br>
+  amount of loan:{{user.amountapplied}}<br>
+{%endfor%}
+<h2>other loan details</h2>
+{%for user in detaildel%}
+bank:    {{user.bank}}<br>       amount advanced{{user.amount_advanced}}<br>
+date granted: {{user.date_granted}}<br>
+ Repayment period   {{user.Repayment_period}}<br>
+outstanding balance   {{user.Outstanding_balance}}<br>   
+{%endfor%}
+<h2>your business details</h2>
+{%for user in detailbiz %}   
+    type of business: {{user.typeofbusiness}}<br>
+    yrs of opertions :  {{user.yrsoperation}}<br>business income:{{user.Businessincome}}<br>   
+{%endfor%}
+<h2>employment details</h2>
+{%for user in detailemp%}
+employer: {{user.employer}}<br>
+pysical address: {{user.physical_add}}<br>
+designation: {{user.designation}}<br>
+employment terms: {{user.employmenterms}}<br>
+{%endfor%}
+{%endblock%}
+
+

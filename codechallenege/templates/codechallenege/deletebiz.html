@@ -1,0 +1,11 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+ <form method="Post">
+    {%csrf_token%}
+    are you user you want to delete : {{deluser}}
+     <button  type="submit"  class="button">submit</button>
+ </form>
+{%endblock%}

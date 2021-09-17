@@ -1,0 +1,38 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>type of business</th>
+                        <th>yrs operation</th>
+                        <th>business income</th>
+                        <th>user</th>
+                        <th>update</th>
+                        <th> delete</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>type of business</th>
+                        <th>yrs operation</th>
+                        <th>business income</th><th>user</th>
+                        <th>update</th>
+                        <th> delete</th>
+                      </tr>
+                    </tfoot> 
+   {%for user in users%}   
+   <tr>
+       <td>{{user.typeofbusiness}}</td>
+       <td>{{user.yrsoperation}}</td>
+       <td>{{user.Businessincome}}</td>
+       <td>{{user.bio}}</td>
+       <td><a href="{% url 'update_biz' user.id %}">update</a></td>
+       <td><a href="{% url 'delete_business' user.id %}">delete</a></td>
+   </tr>
+   {%endfor%}
+    
+ </table>
+{%endblock%}

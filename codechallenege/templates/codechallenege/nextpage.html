@@ -1,0 +1,22 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+Are you employed:
+<form method='Get'>
+   {%csrf_token%} 
+      <select name="dropdown">
+         <option value="Yes" >Yes</option>
+         <option value="NO">No</option>
+      </select>
+   <input type="submit" name="submit" >
+</form>
+{%endblock%}
+
+
+<!-- form class="example" method="POST" action="{% url 'searchfood' %}" style="margin:auto; width:60%">
+          {%csrf_token%}
+          <input type="text" name="q" id='q'/>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form> -->

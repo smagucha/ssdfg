@@ -1,0 +1,58 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+ <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th> 
+                          loan
+                        </th>
+                        <th>
+                          purpose of loaan
+                        </th>
+                        <th>
+                          amount applied
+                        </th>
+                        <th>user</th>
+                        <th>
+                          update
+                        </th>
+                        <th>
+                          delete
+                        </th>
+                      </tr>
+                      <tfoot>
+                         <tr>
+                        <th> 
+                          loan
+                        </th>
+                        <th>
+                          purpose of loaan
+                        </th>
+                        <th>
+                          amount applied
+                        </th>
+                        <th>user</th>
+                        <th>
+                          update
+                        </th>
+                        <th>
+                          delete
+                        </th>
+                      </tfoot>
+   {%for user in users%}
+   <tr>
+       <td>{{user.loan}}</td>
+       <td>{{user.Purposeofloan}}</td>
+       <td>{{user.amountapplied}}</td>
+       <td>{{user.bio}}</td>
+       <td><a href="{% url 'update_loan' user.id %}">update</a></td>
+       <td><a href="{% url 'delete_loan' user.id %}">delete</a></td>
+       <td></td>
+   </tr>
+   {%endfor%}
+    
+ </table>
+{%endblock%}

@@ -1,0 +1,65 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+<table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light"><tr>
+                      <th>
+                        employer
+                      </th>
+                      <th>
+                        physical 
+                      </th>
+                      <th>
+                        designation
+                      </th>
+                      <th>
+                        terms of employment
+                      </th>
+                      <th>
+                        user
+                      </th>
+                      <th>
+                        update
+                      </th>
+                      <th>
+                        delete
+                      </th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <th>
+                        employer
+                      </th>
+                      <th>
+                        physical 
+                      </th>
+                      <th>
+                        designation
+                      </th>
+                      <th>
+                        terms of employment
+                      </th>
+                      <th>
+                        update
+                      </th>
+                      <th>
+                        delete
+                      </th>
+                  </tfoot>
+   {%for user in users%}
+   <tr>
+       <td>{{user.employer}}</td>
+       <td>{{user.physical_add}}</td>
+       <td>{{user.designation}}</td>
+       <td>{{user.employmenterms}}</td>
+       <td>{{user.bio}}</td>
+       <td><a href="{% url 'update_biz' user.id%}">update</a></td>
+       <td><a href="{% url 'delete_emp' user.id%}">delete</a></td>
+
+   </tr>
+   {%endfor%}
+  
+ </table>
+{%endblock%}

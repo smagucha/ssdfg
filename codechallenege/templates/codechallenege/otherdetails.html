@@ -1,0 +1,74 @@
+{%extends 'codechallenege/base.html'%}
+{%block title%}
+ {{title}}
+{%endblock %}
+{%block content%}
+  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>
+                        bank
+                      </th>
+                      <th>
+                        amount advanced
+                      </th>
+                      <th>
+                        date granted
+                      </th>
+                      <th>
+                        repayment period
+                      </th>
+                      <th>
+                        outstanding
+                      </th>
+                      <th>user</th>
+                      <th>
+                        update
+                      </th>
+                      <th>
+                        delete
+                      </th>
+                    </tr>
+                    <tfoot>
+                      <tr>
+                        <th>
+                        bank
+                      </th>
+                      <th>
+                        amount advanced
+                      </th>
+                      <th>
+                        date granted
+                      </th>
+                      <th>
+                        repayment period
+                      </th>
+                      <th>
+                        outstanding
+                      </th>
+                      <th>
+                        <th>user</th>
+                      </th>
+                      <th>
+                        update
+                      </th>
+                      <th> 
+                        delete
+                      </th>
+                    </tr>
+                    </tfoot>
+   {%for user in users%}
+   <tr>
+       <td>{{user.bank}}</td>
+       <td>{{user.amount_advanced}}</td>
+       <td>{{user.date_granted}}</td>
+       <td>{{user.Repayment_period}}</td>
+       <td>{{user.bio}}</td>
+       <td>{{user.Outstanding_balance}}</td>
+       <td><a href="{% url 'update_other' user.id %}">update</a></td>
+       <td><a href="{% url 'delete_other' user.id%}">delete</a></td>
+   </tr>
+   {%endfor%}
+    
+ </table>
+{%endblock%}
