@@ -6,10 +6,10 @@ from pathlib import Path
 
 
 
-#SECRET_KEY = 'gplo9q_&*5*c&blz#!4b3edbvfaknir4&$ex#ef^m^u!4sc7w6'
+SECRET_KEY = 'gplo9q_&*5*c&blz#!4b3edbvfaknir4&$ex#ef^m^u!4sc7w6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY = config('SECRET_KEY')
+#SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 #DEBUG =  True
 
