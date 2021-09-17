@@ -1,16 +1,16 @@
 from django.db import models
 from .validators import onlyletters, onlyisalnum,onlyisnumeric
 from django.contrib.auth.models import User
-# from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import Group, Permission
 
 
 
-new_group, created = Group.objects.get_or_create(name ='admin')
+
 new_group1, created = Group.objects.get_or_create(name ='clientuser')
 new_group2, created = Group.objects.get_or_create(name ='webadminister')
 
-# ct = ContentType.objects.get_for_model(User)
+ct = ContentType.objects.get_for_model(User)
 
 
 # permission = Permission.objects.create(

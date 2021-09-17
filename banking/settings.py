@@ -2,26 +2,29 @@ from pathlib import Path
 import os
 from decouple import config
 
-from pathlib import Path
+# import mimetypes
+# mimetypes.add_type("text/css", ".css", True)
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'gplo9q_&*5*c&blz#!4b3edbvfaknir4&$ex#ef^m^u!4sc7w6'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#SECRET_KEY = config('SECRET_KEY')
 
-#DEBUG = config('DEBUG', cast=bool)
-DEBUG =  True
+DEBUG = config('DEBUG', cast=bool)
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'bankingcom.herokuapp.com' ]
+ALLOWED_HOSTS = ['127.0.0.1']
+
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,12 +33,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'codechallenege',
     'accounts',
+    # 'django.contrib.sites',
     'crispy_forms',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    
 ]
+
+   
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,29 +76,41 @@ TEMPLATES = [
 WSGI_APPLICATION = 'banking.wsgi.application'
 
 
+# Database
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 # DATABASES = {
-
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config('DB_NAME'),
-#         'USER': config('USER'),
-#         'PASSWORD': config('PASSWORD'),
-#         'HOST': config('HOST'),
-#         'PORT': config('PORT'),
-
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
-
 # }
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': config('DB_NAME'),
+
+        'USER': config('USER'),
+
+        'PASSWORD': config('PASSWORD'),
+
+        'HOST': config('HOST'),
+
+        'PORT': config('PORT'),
+
     }
+
 }
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# Password validation
+# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,19 +141,38 @@ USE_L10N = True
 USE_TZ = True
 LOGIN_REDIRECT_URL = '/'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL= '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-DEBUG_PROPAGATE_EXCEPTIONS = True
+STATIC_URL = '/static/'
 
 
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = str(BASE_DIR, ('sent_emails'))
+SITE_ID = 7
 
 
-#SECURE_HSTS_SECONDS = 31536000
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
+# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+# ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_UNIQUE = True
 
+# LOGIN_REDIRECT_URL ='/'
+# LOGOUT_REDIRECT_URL = '/'
+
+# # Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'SCOPE': [
+#             'profile',
+#             'email',
+#         ],
+#         'AUTH_PARAMS': {
+#             'access_type': 'online',
+#         }
+#     }
+# }
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
