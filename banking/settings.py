@@ -16,7 +16,7 @@ DEBUG = config('DEBUG', cast=bool)
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'boiling-cliffs-50625.herokuapp.com' ]
+ALLOWED_HOSTS = ['127.0.0.1', 'bankingcom.herokuapp.com' ]
 # Application definition
 
 INSTALLED_APPS = [
