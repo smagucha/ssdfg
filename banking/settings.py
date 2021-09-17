@@ -92,19 +92,39 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': config('DB_NAME'),
+        'NAME': 'banking',
 
-        'USER': config('USER'),
+        'USER': 'postgres',
 
-        'PASSWORD': config('PASSWORD'),
+        'PASSWORD':'m34sopAn!',
 
-        'HOST': config('HOST'),
+        'HOST': 'localhost',
 
-        'PORT': config('PORT'),
+        'PORT': 5432,
 
     }
 
 }
+
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': config('DB_NAME'),
+
+#         'USER': config('USER'),
+
+#         'PASSWORD': config('PASSWORD'),
+
+#         'HOST': config('HOST'),
+
+#         'PORT': config('PORT'),
+
+#     }
+
+# }
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
