@@ -11,8 +11,8 @@ SECRET_KEY = 'gplo9q_&*5*c&blz#!4b3edbvfaknir4&$ex#ef^m^u!4sc7w6'
 # SECURITY WARNING: don't run with debug turned on in production!
 #SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = config('DEBUG', cast=bool)
-#DEBUG =  True
+#DEBUG = config('DEBUG', cast=bool)
+DEBUG =  True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
